@@ -1,14 +1,10 @@
 package com.B30G03.step_definitions;
 
 
-
-
 import com.B30G03.utilities.BrowserUtils;
 import com.B30G03.utilities.ConfigurationReader;
 import com.B30G03.utilities.Driver;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -24,12 +20,12 @@ public class Hooks {
     @Before (order = 1)
     public void setupMethod(){
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+      //  Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         Driver.getDriver().get(ConfigurationReader.getProperty("tryCloudUrl"));
     }
 
-    //@Before (value = "@login", order = 2 )
+    @Before (value = "@login", order = 2 )
     public void login_scenario_before(){
         System.out.println("---> @Before: RUNNING BEFORE EACH SCENARIO");
     }
@@ -54,15 +50,15 @@ public class Hooks {
 
     }
 
-    //@BeforeStep
-    public void setupStep(){
-        System.out.println("-----> @BeforeSTEP : Running before each step!");
-    }
-
-    //@AfterStep
-    public void teardownStep(){
-        System.out.println("-----> @AfterSTEP : Running after each step!");
-    }
+//    @BeforeStep
+//    public void setupStep(){
+//        System.out.println("-----> @BeforeSTEP : Running before each step!");
+//    }
+//
+//    @AfterStep
+//    public void teardownStep(){
+//        System.out.println("-----> @AfterSTEP : Running after each step!");
+//    }
 
 
 }
