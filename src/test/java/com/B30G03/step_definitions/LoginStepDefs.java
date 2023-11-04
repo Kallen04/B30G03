@@ -16,7 +16,7 @@ public class LoginStepDefs {
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
-        System.out.println("Login url is entered in Hooks");;
+      //  System.out.println("Login url is entered in Hooks");;
     }
 
 
@@ -36,4 +36,5 @@ public class LoginStepDefs {
     public void userEntersTheEmployeeInformation() {
         loginPage.login(ConfigurationReader.getProperty("employee_username"), ConfigurationReader.getProperty("employee_password"));
     }
+
 }

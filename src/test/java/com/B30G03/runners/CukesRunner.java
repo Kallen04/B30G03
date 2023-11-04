@@ -14,7 +14,11 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/B30G03/step_definitions",
         dryRun = false,
-        tags = "@B30G3-168",
+
+        tags = "@wip", //don't forget to change it to @wip before pushing to github,
+        //this way the tag doesn't interact with any Scenario when someone uses it after updating the project
+
+
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
