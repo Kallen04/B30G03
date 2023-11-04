@@ -23,20 +23,23 @@ public class US03_Pre_FileFunc_StepDefs extends BasePage {
 
     }
 
+    /**
+     * This method still NOT working  *********
+     */
     @When("user click Upload and Upload file")
     public void user_click_upload_and_upload_file() {
         //filesPageBd.uploadFileLink.click();
 
         String path = "/Users/bubpasawatdurand/Desktop/profilePic.jpeg";
-        filesPageBd.uploadFileLink.sendKeys(path);
+      //  filesPageBd.uploadFileLink.sendKeys(path);
 
-        BrowserUtils.waitFor(2);
+      //  BrowserUtils.waitFor(2);
 
 
     }
 
     /**
-     * Todo
+     *
      * this method waiting for Upload File done
      */
     @Then("user should be able to see file on the list")
