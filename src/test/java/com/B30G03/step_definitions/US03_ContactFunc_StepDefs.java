@@ -90,11 +90,14 @@ public class US03_ContactFunc_StepDefs extends BasePage {
     @Then("user should be able to see {string} on the list")
     public void user_should_be_able_to_see_on_the_list(String expectName) {
         String actualName = "";
+       // System.out.println("actualNameAdd = " + actualNameAdd);
         for (WebElement each : contactPage.contactlist) {
+            //System.out.println("each.getText() = " + each.getText());
             if(each.getText().equals(actualNameAdd)){
                 actualName = each.getText();
                 break;
             }
+            //System.out.println("actualName = " + actualName);
         }
         Assert.assertEquals(expectName, actualName);
     }
