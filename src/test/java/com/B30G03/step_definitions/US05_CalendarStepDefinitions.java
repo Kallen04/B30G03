@@ -1,14 +1,13 @@
 package com.B30G03.step_definitions;
 
 import com.B30G03.pages.CalendarPage;
-import com.B30G03.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 
-public class CalendarStepDefinitions {
+public class US05_CalendarStepDefinitions {
 
     CalendarPage calendarPage = new CalendarPage();
     @Given("user clicks calendar icon")
