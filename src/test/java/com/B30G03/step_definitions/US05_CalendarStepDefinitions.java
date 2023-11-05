@@ -62,4 +62,5 @@ public class US05_CalendarStepDefinitions {
 
         Assert.assertTrue(calendarPage.calendarToday.getText().contains(eventName));
     }
+
 }
