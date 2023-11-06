@@ -30,22 +30,8 @@ Feature: Default
 		Examples:
 			| fullName  | phoneNum   |     email      | PObox | address      | extendAdd | postal | city     | state    | country |
 			| John Doel | 1234567890 | abcd@yahoo.com | 18456 | 123 King dr. |  3300     | 89999  | New York | New York | US      |
-			| Dean Cave | 9087654321 | dean@gmail.com | 432   | 555 Queen dr.|  222      | 44221  | New York | New York | US      |
+			| Dean Cave | 7775674534 | dean@gmail.com | 432   | 555 Queen dr.|  222      | 44221  | New York | New York | US      |
 
-
-#	Scenario: US03 AC01 Verify User create a new contact
-#		When user click New contact
-#		Then user enter name and last name "John Doel"
-#		And user enter Phone number "1234567890"
-#		And user enter Email "abcd@yahoo.com"
-#		And user enter Post Office box "18456"
-#		And user enter address "123 King dr."
-#		And user enter Extended address "#3300"
-#		And user enter Postal code "89999"
-#		And user enter City "New York"
-#		And user enter State "New York"
-#		And user enter country "US"
-#		Then user should be able to see "John Doel" on the list
 
 	
 	@B30G3-170
@@ -55,9 +41,9 @@ Feature: Default
 		Then user should be able to see whole list matching with total number of the list	
 
 	
-	@B30G3-172 @wip
+	@B30G3-172
 	Scenario: US03 AC04 Verify user can delete any selected contact
 		When user click "John Doel" from list contact
 		And user click three dots icon
 		And user click Delete menu
-		Then user should be able to see No contact selected on the page
+		Then user should be able to see "No contact selected" on the page

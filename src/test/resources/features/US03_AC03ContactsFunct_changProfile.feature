@@ -7,12 +7,11 @@ Feature: Default
 		When user enters the username "user_username" and password "user_password"
 		Then user should be able to login
 
-		## Still CAN NOT
-#		#@B30G3-176
-#		When user click Files module
-#		And user click + icon
-#		And user click Upload and Upload file
-#		Then user should be able to see file on the list
+		#@B30G3-176
+		When user click Files module
+		And user click + icon
+		And user click Upload and Upload file
+		Then user should be able to see file photo "profilePic.jpeg" on the list
 
 		#@B30G3-174
 		When user click Contacts module
