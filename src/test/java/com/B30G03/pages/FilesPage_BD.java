@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class FilesPage_BD {
 
     public FilesPage_BD(){
@@ -14,7 +16,10 @@ public class FilesPage_BD {
     @FindBy(xpath = "//span[@class='icon icon-add']")
     public WebElement plusIcon;
 
-    @FindBy(xpath = "(//span[@class='displayname'])[1]")
+    @FindBy(xpath = "//input[@type='file']")
     public WebElement uploadFileLink;
+
+    @FindBy(xpath = "//span[@class='nametext']")
+    public List<WebElement> listOfFile;
 
 }

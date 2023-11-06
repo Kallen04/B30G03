@@ -173,10 +173,11 @@ public class US03_ContactFunc_StepDefs extends BasePage {
        contactPage.deleteLink.click();
     }
 
-    @Then("user should be able to see No contact selected on the page")
-    public void user_should_be_able_to_see_No_contact_selected_on_the_page() {
+    @Then("user should be able to see {string} on the page")
+    public void user_should_be_able_to_on_the_page(String expectText) {
 
-        Assert.assertTrue(contactPage.textAfterDelete.isDisplayed());
+        String actualText = contactPage.textAfterDelete.getText();
+        Assert.assertEquals(expectText,actualText);
 
     }
 
