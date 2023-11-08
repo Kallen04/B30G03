@@ -51,8 +51,7 @@ public class US01_DashboardModification_StepDef {
     public void user_sees_below_widgets(List<String> allExpectedWidgets) {
         List<String> allActualWidgets = new ArrayList<>();
         for (WebElement eachWidget : dashboardPage_ka.allActualWidgetsWE) {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOf(eachWidget));
+            BrowserUtils.waitForVisibility(eachWidget, 20);
             allActualWidgets.add(eachWidget.getText());
         }
 
@@ -80,9 +79,11 @@ public class US01_DashboardModification_StepDef {
     public void user_should_see_below_status_options(List<String> allExpectedStatusOptions) {
         List<String> allActualStatusOptions = new ArrayList<>();
         for (WebElement eachStatusOption : dashboardPage_ka.allActualStatusOptionsWE) {
-
+            BrowserUtils.waitForVisibility(eachStatusOption, 20);
             allActualStatusOptions.add(eachStatusOption.getText());
         }
+
+        Assert.assertTrue(allExpectedStatusOptions.equals(allActualStatusOptions));
 
     }
 
