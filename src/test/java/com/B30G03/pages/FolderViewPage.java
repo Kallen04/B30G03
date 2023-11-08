@@ -40,4 +40,16 @@ public class FolderViewPage {
     @FindBy(xpath = "//span[@class='innernametext']")
     public List<WebElement> filesAndFoldersName;
 
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> filesAndFoldersSize;
+
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> modifiedDate;
+
+    @FindBy(xpath = "//label[@for='select_all_files']")
+    public WebElement selectAllCheckBox;
+
+    @FindBy(xpath = "//tbody//label")
+    public List<WebElement> allCheckBoxes;
+
 }

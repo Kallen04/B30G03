@@ -35,7 +35,7 @@ Feature: Folder View Functionality
   the first line when clicked on the “select all” checkbox at the left top corner of the list
     Given user at the File page
     When user check the select all checkbox
-    Then user should all the files selected
+    Then user should see all the files selected
     And user should see total folders and files counted
     And user should see total file size displayed
 
