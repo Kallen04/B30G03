@@ -17,4 +17,9 @@ public abstract class BasePage {
           WebElement element = Driver.getDriver().findElement(By.xpath(locator));
           element.click();
       }
+
+    public void clickOnModule(String moduleName){
+        WebElement moduleLocator = Driver.getDriver().findElement(By.xpath("(//ul//a[contains(.,'"+moduleName+"')])[1]"));
+        moduleLocator.click();
+    }
 }
