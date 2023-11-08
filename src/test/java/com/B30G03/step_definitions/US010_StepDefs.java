@@ -1,82 +1,135 @@
 package com.B30G03.step_definitions;
 
+import com.B30G03.pages.FolderViewPage;
+import com.B30G03.utilities.BrowserUtils;
+import com.B30G03.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.bytebuddy.asm.Advice;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.Key;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class US010_StepDefs {
 
-    //@FolderViewTitleVerify
+    FolderViewPage folderViewPage = new FolderViewPage();
 
-    @When("user click the files icon on top left page")
-    public void user_click_the_files_icon_on_top_left_page() {
+    //@Background
+
+    @When("user click on the file icon on top left")
+    public void user_click_on_the_file_icon_on_top_left() {
+
+        folderViewPage.fileIcon.click();
 
     }
+
     @Then("user can verify the file page title is {string}")
-    public void user_can_verify_the_file_page_title_is(String string) {
+    public void user_can_verify_the_file_page_title_is(String expectedTitle) {
+
+        BrowserUtils.verifyTitle(expectedTitle);
 
     }
 
 
     //@FolderViewNameIcon
+    @Given("user at the File page")
+    public void user_at_the_file_page() {
 
-    @When("user should verify {string} icon displayed correctly")
-    public void user_should_verify_icon_displayed_correctly(String string) {
-
-    }
-    @When("user click on the Name icon")
-    public void user_click_on_the_name_icon() {
+        System.out.println("Done by before method");
 
     }
-    @Then("verify the all folders sorted by ascending alphabetical order")
-    public void verify_the_all_folders_sorted_by_ascending_alphabetical_order() {
+
+    @When("user able to see the files and folders table")
+    public void user_able_to_see_the_files_and_folders_table() {
+
+        folderViewPage.filesTable.isDisplayed();
 
     }
-    @Then("verify the all files sorted by ascending alphabetical order")
-    public void verify_the_all_files_sorted_by_ascending_alphabetical_order() {
+
+    @Then("user is able to see folder view order changed after clicking the Name icon")
+    public void user_is_able_to_see_folder_view_order_changed_after_clicking_the_name_icon() {
+
+        // Create 2 list for table element
+        List<String> list1 = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+
+        // Get each elements name from table and store it into list1
+        for (WebElement getEachElements : folderViewPage.filesAndFoldersName) {
+
+            list1.add(getEachElements.getText());
+
+        }
+
+        // Click on WebElement Name to sort the all files and folders name
+        folderViewPage.nameIcon.click();
+
+        // After all files and folders sorted, get the names and store it into list2
+        for (WebElement getEachElements : folderViewPage.filesAndFoldersName) {
+
+            list2.add(getEachElements.getText());
+
+        }
+
+        // Reverse list1
+        Collections.reverse(list1);
+
+        // Compare list1 and list2 is equal --> all files and folders name are sorted
+        Assert.assertEquals(list1, list2);
 
     }
 
 
     //@FolderViewSizeIcon
 
-    @When("user click on the Size icon")
-    public void user_click_on_the_size_icon() {
+    @Then("user is able to see folder view order changed after clicking the Size icon")
+    public void user_is_able_to_see_folder_view_order_changed_after_clicking_the_size_icon() {
 
-    }
-    @Then("verify the all files and folders sorted by size order")
-    public void verify_the_all_files_and_folders_sorted_by_size_order() {
+
 
     }
 
 
     //@FolderViewModifiedIIcon
 
-    @When("user click on the Modified icon")
-    public void user_click_on_the_modified_icon() {
+    @Then("user is able to see folder view order changed after clicking the Modified icon")
+    public void user_is_able_to_see_folder_view_order_changed_after_clicking_the_modified_icon() {
 
-    }
-    @Then("verify the all files sorted by modified date order")
-    public void verify_the_all_files_sorted_by_modified_date_order() {
+
+
 
     }
 
 
     //@FolderViewSelectAll
 
+
     @When("user check the select all checkbox")
     public void user_check_the_select_all_checkbox() {
 
     }
-    @When("user should verify the all files selected")
-    public void user_should_verify_the_all_files_selected() {
+    @Then("user should all the files selected")
+    public void user_should_all_the_files_selected() {
 
     }
-    @When("user should verify total folders and files counted")
-    public void user_should_verify_total_folders_and_files_counted() {
+    @Then("user should see total folders and files counted")
+    public void user_should_see_total_folders_and_files_counted() {
 
     }
-    @Then("user should verify total file size displayed")
-    public void user_should_verify_total_file_size_displayed() {
+    @Then("user should see total file size displayed")
+    public void user_should_see_total_file_size_displayed() {
 
     }
 

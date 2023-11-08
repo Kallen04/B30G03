@@ -4,39 +4,39 @@ Feature: Folder View Functionality
   User Story:
   As a user, I should be able to change folder view order by using Name/Size/Modified buttons.
 
-  Scenario: Login as user
-    When user enters the user information
-    Then user should be able to login
 
-  @FolderViewTitleVerify
-  Scenario: Verify files page title
-    When user click the files icon on top left page
+  Background: User login and go to the file page
+    Given the user is on the login page
+    When user enters the user information
+    And user should be able to login
+    And user click on the file icon on top left
     Then user can verify the file page title is "Files - Trycloud QA"
 
   @FolderViewNameIcon
-  Scenario: Verify files and folders can order by ascending alphabetical order
-    When user should verify "Name" icon displayed correctly
-    And user click on the Name icon
-    Then verify the all folders sorted by ascending alphabetical order
-    Then verify the all files sorted by ascending alphabetical order
+  Scenario: User change folder view order by name
+    Given user at the File page
+    When user able to see the files and folders table
+    Then user is able to see folder view order changed after clicking the Name icon
 
   @FolderViewSizeIcon
-  Scenario: Verify files and folders can order by size
-    When user should verify "Size" icon displayed correctly
-    And user click on the Size icon
-    Then verify the all files and folders sorted by size order
+  Scenario: User change folder view order by Size
+    Given user at the File page
+    When user able to see the files and folders table
+    Then user is able to see folder view order changed after clicking the Size icon
 
   @FolderViewModifiedIIcon
-  Scenario: Verify files and folders can order by modified date order
-    When user should verify "Modified" icon displayed correctly
-    And user click on the Modified icon
-    Then verify the all files sorted by modified date order
+  Scenario: User change folder view order by Modified date
+    Given user at the File page
+    When user able to see the files and folders table
+    Then user is able to see folder view order changed after clicking the Modified icon
 
   @FolderViewSelectAll
-  Scenario: Verify select all icon and see the total values
+  Scenario: User can select all the files at once and see the total values of all files in
+  the first line when clicked on the “select all” checkbox at the left top corner of the list
+    Given user at the File page
     When user check the select all checkbox
-    And user should verify the all files selected
-    And user should verify total folders and files counted
-    Then user should verify total file size displayed
+    Then user should all the files selected
+    And user should see total folders and files counted
+    And user should see total file size displayed
 
 
