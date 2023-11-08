@@ -22,5 +22,6 @@ Feature: Default
       Scenario: US06AC02TC01 Verify User can delete a conversation
         When user clicks 3 dots icon next any conversation
         And user clicks delete conversation button
+        And user clicks yes button
         Then conversation should be deleted
 

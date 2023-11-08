@@ -28,6 +28,15 @@ public class TalkModulePage_VZ extends BasePage{
     @FindBy (className = "conversations")
     public List<WebElement> ConversationList;
 
+    @FindBy (xpath = "//button[@aria-label='Conversation settings']")
+    public WebElement ConversationSettingsButton;
+
+    @FindBy (xpath = "//span[text()='Delete conversation']")
+    public WebElement DeleteConversationButton;
+
+    @FindBy (xpath = "//button[text()='Yes']")
+    public WebElement YesButton;
+
 
 
 

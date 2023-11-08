@@ -59,6 +59,12 @@ public class US06_StepDefs_VZ {
         throw new io.cucumber.java.PendingException();
     }
 
+    @When("user clicks yes button")
+    public void user_clicks_yes_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
     @Then("conversation should be deleted")
     public void conversation_should_be_deleted() {
         // Write code here that turns the phrase above into concrete actions
