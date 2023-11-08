@@ -188,7 +188,7 @@ public class US010_StepDefs {
 
         for (WebElement eachCheckBox : folderViewPage.allCheckBoxes) {
 
-            eachCheckBox.
+            eachCheckBox.isSelected();
             System.out.println(eachCheckBox.isSelected());
 
         }
