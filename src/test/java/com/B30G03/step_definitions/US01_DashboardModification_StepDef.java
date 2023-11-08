@@ -23,6 +23,7 @@ public class US01_DashboardModification_StepDef {
     public void user_can_see_below_modules(List<String> allExpectedModules) {
         List<String> allActualModules = new ArrayList<>();
         for (WebElement eachModule : dashboardPage_ka.allActualModulesWE) {
+
             allActualModules.add(eachModule.getAttribute("aria-label"));
         }
         Assert.assertEquals(allExpectedModules, allActualModules);
@@ -37,7 +38,6 @@ public class US01_DashboardModification_StepDef {
     @Then("user should see {string} on top of the dropdown")
     public void user_should_see_on_top_of_the_dropdown(String username) {
         username = ConfigurationReader.getProperty("user_username");
-        System.out.println("dashboardPage_ka.userName.getText() = " + dashboardPage_ka.userName.getText());
         Assert.assertEquals(username, dashboardPage_ka.userName.getText());
     }
 
@@ -51,9 +51,11 @@ public class US01_DashboardModification_StepDef {
     public void user_sees_below_widgets(List<String> allExpectedWidgets) {
         List<String> allActualWidgets = new ArrayList<>();
         for (WebElement eachWidget : dashboardPage_ka.allActualWidgetsWE) {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOf(eachWidget));
             allActualWidgets.add(eachWidget.getText());
         }
-        System.out.println("allActualWidgets = " + allActualWidgets);
+
         Assert.assertTrue(allExpectedWidgets.containsAll(allActualWidgets));
     }
 
@@ -78,17 +80,15 @@ public class US01_DashboardModification_StepDef {
     public void user_should_see_below_status_options(List<String> allExpectedStatusOptions) {
         List<String> allActualStatusOptions = new ArrayList<>();
         for (WebElement eachStatusOption : dashboardPage_ka.allActualStatusOptionsWE) {
+
             allActualStatusOptions.add(eachStatusOption.getText());
         }
-        System.out.println("allActualStatusOptions = " + allActualStatusOptions);
 
     }
 
     @Then("user should be able to select any option")
     public void user_should_be_able_to_select_any_option() {
         int numOfStatuses = dashboardPage_ka.allActualStatusOptionsWE.size();
-        System.out.println("numOfStatuses = " + numOfStatuses);
-        //dashboardPage_ka.allActualStatusOptionsWE.get(2).click();
 
         for (int i = 0; i < numOfStatuses; i++) {
             dashboardPage_ka.allActualStatusOptionsWE.get(i).click();
