@@ -91,6 +91,5 @@ public class US7_StepDefinitions extends BasePage {
             finalFileNameList.add(element.getText());
         }
         Assert.assertTrue(finalFileNameList.contains(fileName));
-
     }
 }
