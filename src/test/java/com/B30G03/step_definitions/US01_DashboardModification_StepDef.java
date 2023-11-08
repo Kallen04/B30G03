@@ -83,7 +83,7 @@ public class US01_DashboardModification_StepDef {
             allActualStatusOptions.add(eachStatusOption.getText());
         }
 
-        Assert.assertTrue(allExpectedStatusOptions.equals(allActualStatusOptions));
+        Assert.assertEquals(allExpectedStatusOptions, allActualStatusOptions);
 
     }
 
@@ -93,7 +93,7 @@ public class US01_DashboardModification_StepDef {
 
         for (int i = 0; i < numOfStatuses; i++) {
             dashboardPage_ka.allActualStatusOptionsWE.get(i).click();
-            //BrowserUtils.waitFor(1);
+
            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
            wait.until(ExpectedConditions.elementSelectionStateToBe(dashboardPage_ka.allRadioButtons.get(i),true));
 
