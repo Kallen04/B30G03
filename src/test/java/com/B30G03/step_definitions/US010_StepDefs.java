@@ -210,12 +210,12 @@ public class US010_StepDefs {
             // If the file or folder is selected
             if(eachCheckBox.getAttribute("class").equals("ui-droppable selected") || eachCheckBox.getAttribute("class").equals("selected")){
 
-                // And if the data-type is folder, i count for folder
+                // And if the data-type is folder, "i" is count for folder
                 if(eachCheckBox.getAttribute("data-type").equals("dir")){
 
                     i++;
 
-                // If the data-type is file, j count for file
+                // If the data-type is file, "j" is count for file
                 }else if(eachCheckBox.getAttribute("data-type").equals("file")){
 
                     j++;
