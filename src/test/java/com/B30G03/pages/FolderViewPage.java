@@ -49,7 +49,10 @@ public class FolderViewPage {
     @FindBy(xpath = "//label[@for='select_all_files']")
     public WebElement selectAllCheckBox;
 
-    @FindBy(xpath = "//tbody//label")
+    @FindBy(xpath = "//tbody//tr")
     public List<WebElement> allCheckBoxes;
+
+    @FindBy(xpath = "//table[@class='list-container  has-controls multiselect']/thead/tr/th[2]/div/a/span[1]")
+    public WebElement filesAndFoldersCount;
 
 }
