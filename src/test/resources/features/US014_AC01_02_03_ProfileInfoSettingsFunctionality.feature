@@ -7,7 +7,7 @@ Feature: Default
     When user enters the user information
     Then user should be able to login
 
-
+@wip
   @B30G3-190
   Scenario: Check/Change Profile Settings US014AC01TC01
     Given User is on TryCloud Dashboard

@@ -26,4 +26,13 @@ public class ProfileInfoSettingsAP {
     @FindBy (xpath = "//*[@id='displayname']")
     public WebElement FullNameInputBox;
 
+    @FindBy (xpath = "//*[@id=\"email\"]")
+    public WebElement emailInputBox;
+
+    @FindBy (xpath = "//*[@id=\"localeinput\"]")
+    public WebElement SelectLanguage;
+
+    @FindBy( xpath = "//*[@id=\"localeinput\"]/option[187]")
+    public WebElement SpanishLanguage;
+
 }

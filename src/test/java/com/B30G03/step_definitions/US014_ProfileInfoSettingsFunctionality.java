@@ -9,15 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 
-public class US014_ProfileInfoSettingsFunctionality extends BasePage {
+public class US014_ProfileInfoSettingsFunctionality{
 
     ProfileInfoSettingsAP profileSettingsFunctionality = new ProfileInfoSettingsAP();
 
     @Given("User is on TryCloud Dashboard")
     public void userIsOnTryCloudDashboard() {
-        BrowserUtils.verifyTitleContains("dashboard");
-        Assert.assertEquals(Driver.getDriver().getTitle(), "dashboard");
+        BrowserUtils.verifyTitleContains("Dashboard - Trycloud QA");
     }
 
     @When("user click on User Profile")
@@ -35,38 +35,40 @@ public class US014_ProfileInfoSettingsFunctionality extends BasePage {
 
     @Then("Username is same as full name")
     public void usernameIsSameAsFullName() {
-    }
+        String username= profileSettingsFunctionality.Username.getText();
+        String FullName=profileSettingsFunctionality.FullNameInputBox.getText();
 
-    @When("user is on  email input box")
-    public void userIsOnEmailInputBox() {
+        Assert.assertEquals(username,FullName);
+
     }
 
     @Given("user is on Profile Info Page")
     public void userIsOnProfileInfoPage() {
+        profileSettingsFunctionality.ProfileInfoSettingsButton.click();
     }
 
-    @When("user click and select Language")
-    public void userClickAndSelectLanguage() {
-    }
 
-    @Then("the given language is changed")
-    public void theGivenLanguageIsChanged() {
-    }
-
-    @Then("user is available to enter proper email")
-    public void userIsAvailableToEnterProperEmail() {
+    @When("user click on  email input box")
+    public void userClickOnEmailInputBox() {
+        profileSettingsFunctionality.emailInputBox.click();
     }
 
     @Then("user is able to enter proper email")
     public void userIsAbleToEnterProperEmail() {
+        profileSettingsFunctionality.emailInputBox.sendKeys("andjela007@gmail.com");
     }
 
     @Given("Given User is on TryCloud Dashboard")
     public void givenUserIsOnTryCloudDashboard() {
-
+        BrowserUtils.verifyTitleContains("Dashboard - Trycloud QA");
+    }
+    @When("user click and select Language")
+    public void userClickAndSelectLanguage() {
+        profileSettingsFunctionality.SelectLanguage.click();
     }
 
-    @When("user click on  email input box")
-    public void userClickOnEmailInputBox() {
+    @Then("the given language is changed")
+    public void theGivenLanguageIsChanged() {
+
     }
 }
