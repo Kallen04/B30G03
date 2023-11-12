@@ -1,11 +1,15 @@
 package com.B30G03.pages;
 
+import com.B30G03.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class TalkModulePage_VZ extends BasePage{
+public class TalkModulePage_VZ {
+
+    public TalkModulePage_VZ(){PageFactory.initElements(Driver.getDriver(), this);}
 
     @FindBy(xpath = "//a[@aria-label='Talk']")
     public WebElement TalkModuleButton;

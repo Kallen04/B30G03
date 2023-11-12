@@ -1,51 +1,68 @@
 package com.B30G03.step_definitions;
 
+import com.B30G03.pages.BasePage;
+import com.B30G03.pages.TalkModulePage_VZ;
+import com.B30G03.utilities.BrowserUtils;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
-public class US06_StepDefs_VZ {
+import java.util.ArrayList;
+import java.util.List;
 
-    @Then("user clicks to talk page module")
-    public void user_clicks_to_talk_page_module() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+public class US06_StepDefs_VZ extends BasePage {
+
+    TalkModulePage_VZ talkModule = new TalkModulePage_VZ();
+
+    @Given("user is on talk page module")
+    public void user_is_on_talk_page_module() {
+        clickOnModule("Talk");
+        talkModule.TalkModuleButton.click();
     }
 
-    @Then("user should be on talk page")
-    public void user_should_be_on_talk_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("user clicks start a new conversation button")
+    public void user_clicks_start_a_new_conversation_button() {
+
+        talkModule.StartConversationButton.click();
+
     }
 
-    @When("user clicks create a new conversation button")
-    public void user_clicks_create_a_new_conversation_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    String actualConversationName = "";
+
+
+    @And("user names the conversation")
+    public void user_names_the_conversation(String conversationName) {
+        talkModule.ConversationNameBox.clear();
+        talkModule.ConversationNameBox.sendKeys(conversationName);
+        actualConversationName = conversationName;
     }
 
-    @When("user names the conversation")
-    public void user_names_the_conversation() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @And("user clicks add participants button")
+    public void user_clicks_add_participants_button() {
+
+        talkModule.AddParticipantsButton.click();
     }
 
-    @When("user clicks add participants button")
-    public void user_clicks_create_conversation_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @When("user adds any participant")
+    @And("user adds any participant")
     public void user_adds_any_participant() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        talkModule.SelectParticipant.click();
+    }
+
+    @And("user clicks create a new conversation button")
+    public void user_clicks_create_a_new_conversation_button() {
+
     }
 
     @Then("user should see the new conversation in conversations list")
-    public void user_should_be_in_new_conversation_with_selected_participant() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_should_see_the_new_conversation_in_conversations_list() {
+
     }
+
+    // -------------- AC SCENARIO 2 -------------------
 
     @When("user clicks {int} dots icon next any conversation")
     public void user_clicks_dots_icon_next_any_conversation(Integer int1) {
