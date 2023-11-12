@@ -71,6 +71,7 @@ public class US010_StepDefs {
 
         }
 
+
         // Click on WebElement Name to sort the all files and folders name
         folderViewPage.nameIcon.click();
 
@@ -81,8 +82,10 @@ public class US010_StepDefs {
 
         }
 
+
         // Reverse list1
         Collections.reverse(list1);
+
 
         // Compare list1 and list2 is equal --> all files and folders name are sorted
         Assert.assertEquals(list1, list2);
