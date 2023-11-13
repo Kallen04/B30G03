@@ -27,8 +27,10 @@ public class ContactGroupFuncPage_AS {
 
 
 
-    @FindBy(xpath = "//span[@class='app-navigation-entry__title']")
-    public List <WebElement> listGroupLEFT;
+   @FindBy(xpath = "//span[@class='app-navigation-entry__title']")
+   public List <WebElement> listGroupLEFT;
+
+
 
     @FindBy(xpath = "//div[@class='app-content-list-item-line-one']")
     public List<WebElement> contactlist;
