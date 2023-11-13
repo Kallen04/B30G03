@@ -63,51 +63,48 @@ public class US08_ContactGroupFunc_StepDefs extends BasePage {
     public void userShouldSeeTheDropdownListIsMatchingWithTheContactInfoMenu() {
 
 
+        List<String> listGroupNameLeft = BrowserUtils.getElementsText(contactModule.listGroupLEFT);
+        listGroupNameLeft.remove(0);
+        listGroupNameLeft.remove(0);
+        listGroupNameLeft.remove(listGroupNameLeft.size() - 1);
 
-        contactModule.listGroupLEFT.remove(0);
-        contactModule.listGroupLEFT.remove(0);
-        contactModule.listGroupLEFT.remove(contactModule.listGroupLEFT.size()-1);
-
+        //click any contact just in case (I click 2 on the list)
         contactModule.contactlist.get(1).click();
 
-        List<String> listGroupNameLeft = BrowserUtils.getElementsText(contactModule.listGroupLEFT);
-
-        List<String> listGroupNameRight = new ArrayList <>(); // -for store list from the right
-
+        List<String> listGroupNameRight = new ArrayList<>();  //--for store list from the right
         String text = "";
-        for (WebElement each : contactModule.listGroupLEFT) {
-            text = Driver.getDriver().findElement(By.xpath("//span[.='"+each.getText()+"']")).getText();
-            listGroupNameRight.add(text);
-            System.out.println("text = " + text);
+        for (String each : listGroupNameLeft) {
 
+            text = Driver.getDriver().findElement(By.xpath("//span[.='" + each + "']")).getText();
+            listGroupNameRight.add(text);   //
+            //System.out.println("text = " + text);
         }
-        Assert.assertEquals(listGroupNameLeft,listGroupNameRight);
+        Assert.assertEquals(listGroupNameLeft, listGroupNameRight);  //--compare 2 list
     }
 
+        // AC_3
 
-    // AC_3
+        @When("user click Add new property window")
+        public void userClickAddNewPropertyWindow() {
+            contactModule.addPropertyWindow.click();
+        }
 
+        @And("user click {string} property from the drop down menu")
+        public void userClickPropertyFromTheDropDownMenu(String anniversary){
 
-
-    @When("user click Add new property window")
-    public void userClickAddNewPropertyWindow() {
-        contactModule.addPropertyWindow.click();
-    }
-
-    @And("user click {string} property from the drop down menu")
-    public void userClickPropertyFromTheDropDownMenu(String anniversary) {
-        int numOfProp = contactModule.allPropertyOptions.size();
-        for (int i = 0; i < numOfProp; i++) {
-            if (contactModule.allPropertyOptions.get(i).getAttribute("title").equals(anniversary)) {
-                contactModule.allPropertyOptions.get(i).click();
-                numOfProp--;
+            int numOfProp = contactModule.allPropertyOptions.size();
+            for (int i = 0; i < numOfProp; i++) {
+                if (contactModule.allPropertyOptions.get(i).getAttribute("title").equals(anniversary)){
+                    contactModule.allPropertyOptions.get(i).click();
+                    numOfProp--;
+                }
             }
-
         }
+
+        @Then("user should see newly created property name displayed")
+        public void userShouldSeeNewlyCreatedPropertyNameDisplayed() {
+            Assert.assertTrue(contactModule.addedProperty.isDisplayed());
+        }
+
     }
 
-    @Then("user should see newly created property name displayed")
-    public void userShouldSeeNewlyCreatedPropertyNameDisplayed() {
-        Assert.assertTrue(contactModule.addedProperty.isDisplayed());
-    }
-}
